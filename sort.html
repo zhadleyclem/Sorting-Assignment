@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Array Sorting Example</title>
+  <script src="sort.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding-top: 80px;
+      margin: 2rem;
+    }
+
+    #navbar nav {
+      background-color: #222;
+      padding: 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    #navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <h1>Sorting String Arrays</h1>
+  <p>Enter two or more names in the field below. The sorted list will appear in the textarea, converted to uppercase and numbered.</p>
+
+  <form name="theform">
+    Name:
+    <input type="text" name="newname" size="20" id="newname">
+    <input type="button" name="addname" value="Add" onclick="SortNames();">
+    <br/>
+    <h2>Sorted Names</h2>
+    <textarea cols="60" rows="10" name="sorted" readonly>The sorted names will appear here.</textarea>
+  </form>
+
+  <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch('../navbar.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                })
+                .catch(error => {
+                    console.log('Navbar file not found, using default');
+                });
+        });
+  </script>
+</body>
+</html>
